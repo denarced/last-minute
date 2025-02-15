@@ -19,3 +19,7 @@ n seconds (or minutes) of logs are printed.
       -m, --minutes=INT
       -t, --show-tick            Show current time.
       -r, --refresh-seconds=2    How often output is refreshed.
+
+# Install
+
+    go install github.com/denarced/last-minute/...@latest
