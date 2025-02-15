@@ -8,7 +8,3 @@ Every time tail feeds another line, terminal screen is cleared, and most recent
 n seconds (or minutes) of logs are printed.
 
 [![Demo](https://asciinema.org/a/703573.svg)](https://asciinema.org/a/703573)
-
-# Install
-
-    go get github.com/denarced/last-minute
