@@ -9,7 +9,6 @@ import (
 
 	"github.com/alecthomas/kong"
 	"github.com/denarced/last-minute/lib/lastmin"
-	"github.com/denarced/last-minute/shared"
 	"github.com/inancgumus/screen"
 )
 
@@ -21,9 +20,7 @@ var CLI struct {
 }
 
 func main() {
-	shared.InitLogging()
 	kong.Parse(&CLI)
-	shared.Logger.Info("Start.", "CLI arguments", os.Args)
 
 	seconds := CLI.Minutes * 60
 	if code := deriveErrorExitCode(); code > 0 {
@@ -55,8 +52,6 @@ mainLoop:
 			date, err := lastmin.ParseDate(line)
 			if err == nil {
 				lines = append(lines, lastmin.DatedLine{Date: date, Line: line})
-			} else {
-				shared.Logger.Warn("No date found, ignoring.", "line", line)
 			}
 		}
 		lines = lastmin.FilterLines(lines, now, time.Now(), seconds)
@@ -68,7 +63,6 @@ mainLoop:
 			fmt.Println(each.Line)
 		}
 	}
-	shared.Logger.Info("Done.")
 }
 
 func deriveErrorExitCode() (code int) {

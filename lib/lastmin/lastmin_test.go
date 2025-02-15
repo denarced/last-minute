@@ -4,14 +4,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/denarced/last-minute/shared"
 	"github.com/stretchr/testify/require"
 )
 
 func TestParseDate(t *testing.T) {
 	run := func(name, line string, expected time.Time, expectedErrorMessage string) {
 		t.Run(name, func(t *testing.T) {
-			shared.InitTestLogging(t)
 			req := require.New(t)
 			actual, err := ParseDate(line)
 			if expectedErrorMessage == "" {
@@ -37,7 +35,6 @@ func createDate(year, month, day int) time.Time {
 }
 
 func TestFilterLines(t *testing.T) {
-	shared.InitTestLogging(t)
 	now := createDate(1600, 6, 6)
 	minutes := 3
 	// First "|": Limit defined by "minutes".
