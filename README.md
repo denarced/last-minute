@@ -22,4 +22,4 @@ n seconds (or minutes) of logs are printed.
 
 # Install
 
-    go install github.com/denarced/last-minute/...@latest
+    go install github.com/denarced/last-minute@latest
